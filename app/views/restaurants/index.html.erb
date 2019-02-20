@@ -1,0 +1,22 @@
+<h1>Restaurants</h1>
+  <% @restaurants.each do |restaurant| %>
+      <div>
+        <div><span>Name</span> : <span><%= link_to restaurant.name, restaurant_path(restaurant)%></span></div>
+        <div><span>Address</span> : <span><%= restaurant.address %></span></div>
+        <div><span>Description</span> : <span><%= restaurant.category %></span></div>
+        <div><span>Phone Number</span> : <span><%= restaurant.phone_number %></span></div>
+      </div>
+      <br>
+      <p><% restaurant.reviews.each do |review| %>
+          <%= review.content %>
+          <%= review.rating %>
+        <% end %>
+      </p>
+  <% end %>
+  <%= link_to "Add Restaurant", restaurant_path(:new), class: "btn btn-primary"%>
+
+
+
+
+
+
